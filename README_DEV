@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# BRAMS Ramsin Build Utility =================
+# Authors: Luiz Flávio Rodrigues, Denis Eiras
+# ============================================
+
+
+# This is for developers
+
+# There's 2 versions nowadays:
+# py2.7 - https://pypi.org/project/brabu-py2.7/
+# py3.5 - https://pypi.org/project/brabu-py3.5/
+#
+
+# To compile the application and distribute it:
+# =============================================
+
+# 1) activate your python version. Eg, anaconda 2.7 (root) or anaconda 3.5 (py3.5):
+source activate root
+source activate py3.5
+
+# 2) increment number version in setup.py
+
+# 3) Compile using your python activated.
+./compile_wheel.sh
+
+# 4) Upload your product acording with your python version. Once activated py2.7, It will be uploaded automatically to
+# the https://pypi.org/project/brabu-py2.7/. The same for version 3.5. Version 2.6 never worked.
+./upload_prod.sh
+
+
+
+# Generating an oflline package for Begginners
+# ============================================
+
+# 1) Compile and distribute the application, as above
+
+# 2) Follow the procedures in install_brabu_{py-version}.sh
+
+# 3) Pack the entire directory, py2.7 or py 3.5
+
+tar -R -chzvf brabu-0.1.1-py2.7.tar.gz brabu-py2.7
+tar -R -chzvf brabu-0.1.1-py3.5.tar.gz brabu-py3.5
+
+# 4) Upload it to the ftp ftp.cptec.inpe.br/brams/brabu
+# user: pbrams
+# password: eWcjke
+
